@@ -1,0 +1,26 @@
+#!/usr/bin/bash
+
+###############################################################################
+# Title : dGCache
+# Author: Harris Zheng
+# Description: Remove the Graphics Cache of Chrome. 
+###############################################################################
+
+path="/c/Users/harri/AppData/Local/Google/Chrome/User Data/ShaderCache/GPUCache"
+cd "${path}"
+echo "$(ls -A)"
+if [ -z "$(ls -A)" ]; then
+    echo "Path Empty"
+else
+    $(rm *)
+    echo "Removed"
+fi
+
+path="/c/Users/harri/AppData/Local/Google/Chrome/User Data/Profile 1/GPUCache"
+cd "${path}"
+if [ -z "$(ls -A)" ]; then
+    echo "Path Empty"
+else
+    $(rm *)
+    echo "Removed"
+fi

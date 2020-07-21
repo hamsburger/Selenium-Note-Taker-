@@ -1,0 +1,17 @@
+2020-07-19 22:35:34,929
+Traceback (most recent call last):
+  File "knowItAll.py", line 19, in main
+    driver.getSelectedText()
+  File "..\ChromeDriver.py", line 75, in getSelectedText
+    selected = self.driver.find_element_by_css_selector("::selection")
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 598, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"::selection"}
+  (Session info: chrome=84.0.4147.89)
+
