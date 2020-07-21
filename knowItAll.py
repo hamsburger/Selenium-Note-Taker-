@@ -64,7 +64,7 @@ def handleOperation(driver, urlKnowledge, url, currBaseText):
 
         driver.alert("Can't Pop. No Knowledge In The List")
     ## Fill Word
-    elif keyboard.is_pressed('f'):
+    elif keyboard.is_pressed('shift+f'):
         if len(urlKnowledge[url]) == 0:
             return 
 
@@ -107,7 +107,7 @@ def isAddTextValid(prevText, text, learnedDetails):
 def WriteOutlearnedDetails(focus, learnedDetails):
     print(focus, learnedDetails)
     fileName = focus + "--" + str(datetime.date.today())
-    currTime = datetime.datetime.now().time()
+    currTime = datetime.datetime.now().time() 
     strCurrentTime = currTime.strftime("%H:%M")
 
     with open(fileName, "a+", encoding="utf-8") as f:
