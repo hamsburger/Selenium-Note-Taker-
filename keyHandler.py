@@ -1,89 +1,87 @@
 from pynput import keyboard
 from pynput.keyboard import Key, Controller 
-
-
+import time
+import re
 
 ## Update urlKnowledge, url, currBaseText in Real Time (Setter)
 ## Update Level on Keypress  
 # class keyThread:
 
-def handleTabLevel(driver, level):
+class KeyThread:
     '''
     '''
-        ## Tabbing Level
-    if keyboard.read_key() == "shift+-":
-        if level > 0:
-            level -= 1
-        print("shift+-")
-        if __name__ != "__main__":
-            driver.alert("Current Level: " + str(level))
-        
+    def __init__(self, driver):
+        self.level = 0
+        self.driver = driver
+        self.urlKnowledge = ""
+        self.url = ""
+        self.currBaseText = "" 
+        print("Init!")
 
+    def updateMainThread(self):
+        return {"urlKnowledge" : self.urlKnowledge, "url" : self.url, "currBaseText" : self.currBaseText, "level" : self.level}
 
-    elif keyboard.read_key() == 'shift+=':
-        level += 1
-        print("shift+=")
-        if __name__ != "__main__":
-            driver.alert("Current Level: " + str(level))
+    ## This only needs to be updated upon adding text (highlighting text) 
+    def updateKeyThread(self, url, urlKnowledge, currBaseText):
+        self.url = url
+        self.urlKnowledge = urlKnowledge
+        self.currBaseText = currBaseText 
     
+    def activateHotKeys(self):  
+        def addLevel():
+            self.level += 1
+            print("Added level: ", self.level)
+            
+
+        def subtractLevel():
+            if self.level > 0:
+                self.level -= 1
+            print("Subtract Level: ", self.level)
+            
+
+        def fillText():
+            if len(self.urlKnowledge[self.url]) == 0:
+                return 
+
+            recentKnowledge = self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"]
+            searchF = re.search(recentKnowledge, self.currBaseText, re.I)
+            print(recentKnowledge, self.currBaseText)
+            if searchF == None:
+                return 
+
+            start = searchF.start()
+            end = searchF.end()
+            newStart, newEnd = traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
+            self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"] = self.currBaseText[newStart:newEnd]
+            print("Text formatted from: " + recentKnowledge + " to " + self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"])
+            
+
+        def pop():
+            if len(self.urlKnowledge[self.url]) != 0:
+                poppedString = "Pop " + self.urlKnowledge[self.url].pop()["detail"]
+
+                if len(self.urlKnowledge[self.url]) != 0:
+                    self.currBaseText = self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"]
+                print(poppedString)
+                return
+
+            print("Can't Pop. No Knowledge In The List")
+            
+
+        def stop():
+            h.stop()
     
-
-    return level
-def handleOperation(driver, urlKnowledge, url, currBaseText):
-    '''
-    '''
-
-    print(keyboard.read_key())
-    ## Pop Last Element Inserted
-    if keyboard.read_key() == 'esc':
-        if len(urlKnowledge[url]) != 0:
-            poppedString = "Pop " + urlKnowledge[url].pop()["detail"]
-            driver.alert(poppedString)
-            return
-
-        driver.alert("Can't Pop. No Knowledge In The List")
-    ## Fill Word
-    elif keyboard.read_key() == 'shift+f':
-        if len(urlKnowledge[url]) == 0:
-            return 
-
-        recentKnowledge = urlKnowledge[url][len(urlKnowledge[url]) - 1]["detail"]
-        searchF = re.search(recentKnowledge.lower(), currBaseText)
-        print(recentKnowledge, currBaseText)
-        if searchF == None:
-            return 
-
-        start = searchF.start()
-        end = searchF.end()
-        newStart, newEnd = traverseTillSpace(start, end, currBaseText, recentKnowledge)
-        urlKnowledge[url][len(urlKnowledge[url]) - 1]["detail"] = currBaseText[newStart:newEnd]
-        driver.alert("Text formatted from: " + recentKnowledge + " to " + urlKnowledge[url][len(urlKnowledge[url]) - 1]["detail"])
-
-def activateHotKeys():  
-    def addLevel():
-        print('Add Level!')
-
-    def subtractLevel():
-        print('Subtract Level!')
-
-    def fillText():
-        print('Fill Text!')
-
-    def pop():
-        print('Pop')
+        ## Keys Are Ready
+        hotKeys = keyboard.GlobalHotKeys({
+            '<shift>+-' : subtractLevel,
+            '<shift>+=' : addLevel,
+            '<shift>+f' : fillText, 
+            '<esc>' : pop,
+            '<ctrl>+c': stop, 
+        })
         
-    def stop():
-        h.stop()
- 
-    ## Keys Are Ready
-    with keyboard.GlobalHotKeys({
-        '<shift>+-' : subtractLevel,
-        '<shift>+=' : addLevel,
-        '<shift>+f' : fillText, 
-        '<esc>' : pop,
-        '<ctrl>+c': stop, 
-    }) as h:
-        h.join()
+        hotKeys.start()
+        return hotKeys
 
 if __name__ == "__main__":
     activateHotKeys()

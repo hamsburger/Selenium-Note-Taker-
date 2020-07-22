@@ -11,10 +11,13 @@ import datetime
 import atexit
 import re
 import keyboard
+import threading
 from collections import defaultdict
+import keyHandler
+import variables
 sys.path.append("..")
 import ChromeDriver
-import keyHandler
+
 
 def traverseTillSpace(start, end, currBaseText, recentKnowledge):
     '''
@@ -83,14 +86,17 @@ def main():
     logging.basicConfig(filename=LOG_FILENAME, format="%(asctime)s", level=logging.ERROR, filemode='a')
     
     ## Test Website 
-    learnedDetails = []
+
     prevText = ""
     currBaseText = ""
     level = 0
     urlKnowledge = defaultdict(list) # key -> url, value -> list of highlighted text
     focus = input("What is Your Focus?")
-
     
+    keyThread = keyHandler.KeyThread(driver) 
+    hotKeyThread = keyThread.activateHotKeys() ## You Must Return this thread to run multithreading?
+    print(hotKeyThread)
+    print("Thread Count: ", threading.active_count())
     while True:
         try: 
             url = driver.driver.current_url
@@ -99,21 +105,28 @@ def main():
             text = re.sub("[\\t\\n]+", " ", text).strip() ## Remove line breaks and tabs, and also any punctuation at the end. 
             text = re.sub("[\.\?\,]$", "", text)
             text = text[0:1].upper() + text[1:]
-            
+            keyThread.updateKeyThread(url, urlKnowledge, currBaseText) ## Make sure key is updated without empty url values
 
             if isAddTextValid(prevText, text, urlKnowledge[url]):
                 urlKnowledge[url].append({"detail" : text, "level" : level})
-                currBaseText = baseText 
+                currBaseText = baseText
+                keyThread.updateKeyThread(url, urlKnowledge, currBaseText)
 
-            handleOperation(driver, urlKnowledge, url, currBaseText)
-            level = handleTabLevel(driver, level)            
-            print(str(level) + ". ")
-            for knowledge in urlKnowledge[url]:
-                print(knowledge["detail"] + "\n")
+            
+
+            keyVariables = keyThread.updateMainThread()
+            currBaseText, url, urlKnowledge, level = [keyVariables["currBaseText"], keyVariables["url"], \
+            keyVariables["urlKnowledge"], keyVariables["level"]]
+            print(currBaseText)
+
+            # print(str(level) + ". ")
+            # for knowledge in urlKnowledge[url]:
+            #     print(knowledge["detail"] + "\n")
                 
             prevText = text
         except KeyboardInterrupt:
             WriteOutlearnedDetails(focus, urlKnowledge)
+            logException()
             sys.exit(0)
 
 if __name__ == "__main__":

@@ -15,3 +15,449 @@ Traceback (most recent call last):
 selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"::selection"}
   (Session info: chrome=84.0.4147.89)
 
+2020-07-22 12:45:33,056
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 38, in fillText
+    if len(self.urlKnowledge[self.url]) == 0:
+AttributeError: 'KeyThread' object has no attribute 'urlKnowledge'
+2020-07-22 12:48:40,358
+Traceback (most recent call last):
+  File "knowItAll.py", line 100, in main
+    url = driver.driver.current_url
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 669, in current_url
+    return self.execute(Command.GET_CURRENT_URL)['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 76, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 97, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+2020-07-22 12:49:43,178
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 55, in pop
+    if len(self.urlKnowledge[self.url]) != 0:
+TypeError: string indices must be integers
+2020-07-22 12:59:23,905
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 43, in fillText
+    searchF = re.search(recentKnowledge.lower(), self.currBaseText)
+NameError: name 're' is not defined
+2020-07-22 12:59:57,383
+Traceback (most recent call last):
+  File "knowItAll.py", line 101, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:08:49,610
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 65, in stop
+    h.stop()
+NameError: name 'h' is not defined
+2020-07-22 13:08:49,701
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:11:10,449
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 31, in addLevel
+    self.driver.alert("Added level: ", self.level)
+TypeError: alert() takes 2 positional arguments but 3 were given
+2020-07-22 13:11:57,743
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:16:08,795
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 65, in stop
+    h.stop()
+NameError: name 'h' is not defined
+2020-07-22 13:16:08,819
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:17:41,357
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 32, in addLevel
+    self.driver.alert("Added level: ", self.level)
+TypeError: alert() takes 2 positional arguments but 3 were given
+2020-07-22 13:19:23,094
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:27:16,138
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 46, in fillText
+    searchF = re.search(recentKnowledge.lower(), self.currBaseText)
+NameError: name 're' is not defined
+2020-07-22 13:43:05,213
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:47:37,952
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 46, in fillText
+    searchF = re.search(recentKnowledge.lower(), self.currBaseText)
+NameError: name 're' is not defined
+2020-07-22 13:47:58,231
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:49:57,511
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 46, in fillText
+    searchF = re.search(recentKnowledge.lower(), self.currBaseText)
+NameError: name 're' is not defined
+2020-07-22 13:51:05,805
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 13:55:34,072
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 70, in stop
+    h.stop()
+NameError: name 'h' is not defined
+2020-07-22 13:55:35,043
+Traceback (most recent call last):
+  File "knowItAll.py", line 104, in main
+    text, baseText = driver.getSelectedText()
+  File "..\ChromeDriver.py", line 93, in getSelectedText
+    documentText = self.driver.execute_script("return document.getSelection().toString()")
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 636, in execute_script
+    'args': converted_args})['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+2020-07-22 13:56:52,357
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 46, in fillText
+    searchF = re.search(recentKnowledge.lower(), self.currBaseText)
+NameError: name 're' is not defined
+2020-07-22 13:57:33,899
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 14:01:21,185
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 46, in fillText
+    searchF = re.search(recentKnowledge.lower(), self.currBaseText)
+NameError: name 're' is not defined
+2020-07-22 14:01:49,104
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 14:07:23,503
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 72, in stop
+    h.stop()
+NameError: name 'h' is not defined
+2020-07-22 14:07:23,575
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 14:10:28,582
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 72, in stop
+    h.stop()
+NameError: name 'h' is not defined
+2020-07-22 14:10:28,628
+Traceback (most recent call last):
+  File "knowItAll.py", line 104, in main
+    text, baseText = driver.getSelectedText()
+  File "..\ChromeDriver.py", line 92, in getSelectedText
+    browserText = self.driver.execute_script("return window.getSelection().toString()")
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 636, in execute_script
+    'args': converted_args})['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+2020-07-22 14:12:00,782
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 72, in stop
+    h.stop()
+NameError: name 'h' is not defined
+2020-07-22 14:12:00,825
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 14:14:32,556
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 54, in fillText
+    newStart, newEnd = traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
+NameError: name 'traverseTillSpace' is not defined
+2020-07-22 14:14:43,393
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-22 14:17:11,985
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 72, in stop
+    h.stop()
+NameError: name 'h' is not defined
+2020-07-22 14:17:12,114
+Traceback (most recent call last):
+  File "knowItAll.py", line 103, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt

@@ -2,3 +2,9 @@
 - Press f To Fill Up Missing Text From Previous Selection (Yep!) 
 - Use BulletPoints to Separate Information 
 - Categorize And Search Information (Almost As If You're Dealing with a Pivot Tablegit i)
+
+
+Key Handler:
+- MAKE KEYTHREAD ASYNCHRONOUS, NON-BLOCKING
+- Read Text
+- Update Text
