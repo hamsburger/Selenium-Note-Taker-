@@ -14,6 +14,7 @@ import keyboard
 from collections import defaultdict
 sys.path.append("..")
 import ChromeDriver
+import keyHandler
 
 def traverseTillSpace(start, end, currBaseText, recentKnowledge):
     '''
@@ -31,55 +32,6 @@ def traverseTillSpace(start, end, currBaseText, recentKnowledge):
     
     return [newStart, newEnd]
 
-def handleTabLevel(driver, level):
-    '''
-    '''
-        ## Tabbing Level
-    if keyboard.is_pressed('shift+-'):
-        if level > 0:
-            level -= 1
-        print("shift+-")
-        driver.alert("Current Level: " + str(level))
-        
-
-
-    elif keyboard.is_pressed('shift+='):
-        level += 1
-        print("shift+=")
-        driver.alert("Current Level: " + str(level))
-    
-    
-
-    return level
-
-def handleOperation(driver, urlKnowledge, url, currBaseText):
-    '''
-    '''
-    ## Pop Last Element Inserted
-    if keyboard.is_pressed('esc'):
-        if len(urlKnowledge[url]) != 0:
-            poppedString = "Pop " + urlKnowledge[url].pop()["detail"]
-            driver.alert(poppedString)
-            return
-
-        driver.alert("Can't Pop. No Knowledge In The List")
-    ## Fill Word
-    elif keyboard.is_pressed('shift+f'):
-        if len(urlKnowledge[url]) == 0:
-            return 
-
-        recentKnowledge = urlKnowledge[url][len(urlKnowledge[url]) - 1]["detail"]
-        searchF = re.search(recentKnowledge.lower(), currBaseText)
-        print(recentKnowledge, currBaseText)
-        if searchF == None:
-            return 
-
-        start = searchF.start()
-        end = searchF.end()
-        newStart, newEnd = traverseTillSpace(start, end, currBaseText, recentKnowledge)
-        urlKnowledge[url][len(urlKnowledge[url]) - 1]["detail"] = currBaseText[newStart:newEnd]
-        driver.alert("Text formatted from: " + recentKnowledge + " to " + urlKnowledge[url][len(urlKnowledge[url]) - 1]["detail"])
-        
 def logException():
     logging.exception("-------------------------------------------------------\nException Occured")
 
@@ -163,8 +115,6 @@ def main():
         except KeyboardInterrupt:
             WriteOutlearnedDetails(focus, urlKnowledge)
             sys.exit(0)
-
-
 
 if __name__ == "__main__":
     main()
