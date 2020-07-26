@@ -2,6 +2,9 @@ from pynput import keyboard
 from pynput.keyboard import Key, Controller 
 import time
 import re
+import atexit
+import logging 
+import sys
 
 ## Update urlKnowledge, url, currBaseText in Real Time (Setter)
 ## Update Level on Keypress  
@@ -18,6 +21,7 @@ class KeyThread:
         self.currBaseText = "" 
         print("Init!")
 
+
     def updateMainThread(self):
         return {"urlKnowledge" : self.urlKnowledge, "url" : self.url, "currBaseText" : self.currBaseText, "level" : self.level}
 
@@ -27,6 +31,22 @@ class KeyThread:
         self.urlKnowledge = urlKnowledge
         self.currBaseText = currBaseText 
     
+    def traverseTillSpace(self, start, end, currBaseText, recentKnowledge):
+        '''
+            From the first match, traverse till first space or till beginning. 
+        '''
+    
+        newStart = start
+        newEnd = end
+
+        while currBaseText[newEnd] != " " and newEnd < len(currBaseText) - 1:
+            newEnd += 1
+        
+        while currBaseText[newStart] != " " and newStart > 0:
+            newStart -= 1            
+        
+        return [newStart, newEnd]
+
     def activateHotKeys(self):  
         def addLevel():
             self.level += 1
@@ -40,18 +60,18 @@ class KeyThread:
             
 
         def fillText():
+            
             if len(self.urlKnowledge[self.url]) == 0:
                 return 
 
             recentKnowledge = self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"]
             searchF = re.search(recentKnowledge, self.currBaseText, re.I)
-            print(recentKnowledge, self.currBaseText)
             if searchF == None:
                 return 
 
             start = searchF.start()
             end = searchF.end()
-            newStart, newEnd = traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
+            newStart, newEnd = self.traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
             self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"] = self.currBaseText[newStart:newEnd]
             print("Text formatted from: " + recentKnowledge + " to " + self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"])
             
@@ -67,17 +87,16 @@ class KeyThread:
 
             print("Can't Pop. No Knowledge In The List")
             
-
-        def stop():
-            h.stop()
+        def printKnowledge():
+            print(self.urlKnowledge[self.url])
     
         ## Keys Are Ready
         hotKeys = keyboard.GlobalHotKeys({
             '<shift>+-' : subtractLevel,
             '<shift>+=' : addLevel,
             '<shift>+f' : fillText, 
+            '<shift>+p' : printKnowledge,
             '<esc>' : pop,
-            '<ctrl>+c': stop, 
         })
         
         hotKeys.start()

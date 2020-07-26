@@ -19,24 +19,9 @@ sys.path.append("..")
 import ChromeDriver
 
 
-def traverseTillSpace(start, end, currBaseText, recentKnowledge):
-    '''
-        From the first match, traverse till first space or till beginning. 
-    '''
-    
-    newStart = start
-    newEnd = end
-
-    while currBaseText[newEnd] != " " and newEnd < len(currBaseText) - 1:
-        newEnd += 1
-    
-    while currBaseText[newStart] != " " and newStart > 0:
-        newStart -= 1            
-    
-    return [newStart, newEnd]
 
 def logException():
-    logging.exception("-------------------------------------------------------\nException Occured")
+    logging.error("-------------------------------------------------------\nError Occured")
 
 def isAddTextValid(prevText, text, learnedDetails):
     '''
@@ -61,7 +46,7 @@ def isAddTextValid(prevText, text, learnedDetails):
       
 def WriteOutlearnedDetails(focus, learnedDetails):
     print(focus, learnedDetails)
-    fileName = focus + "--" + str(datetime.date.today())
+    fileName = focus + "--" + str(datetime.date.today()) + ".txt"
     currTime = datetime.datetime.now().time() 
     strCurrentTime = currTime.strftime("%H:%M")
 
@@ -117,7 +102,6 @@ def main():
             keyVariables = keyThread.updateMainThread()
             currBaseText, url, urlKnowledge, level = [keyVariables["currBaseText"], keyVariables["url"], \
             keyVariables["urlKnowledge"], keyVariables["level"]]
-            print(currBaseText)
 
             # print(str(level) + ". ")
             # for knowledge in urlKnowledge[url]:
@@ -127,6 +111,7 @@ def main():
         except KeyboardInterrupt:
             WriteOutlearnedDetails(focus, urlKnowledge)
             logException()
+            hotKeyThread.stop()
             sys.exit(0)
 
 if __name__ == "__main__":
