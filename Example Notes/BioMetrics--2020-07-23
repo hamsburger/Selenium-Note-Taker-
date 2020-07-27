@@ -1,0 +1,19 @@
+---------------------15:53 https://us.norton.com/internetsecurity-iot-biometrics-how-do-they-work-are-they-safe.html?inid=nortoncom_isc_iot-how-facial-recognition-software-works-ReadMore-internetsecurity-iot-biometrics-how-do-they-work-are-they-safe.html ------------------------------------------------
+Biometrics are a way to measure a person’s physical characteristics to verify their identity
+	- Face recognition
+	- Iris recognition
+		• Although widely used in security applications, it isn’t typically used in the consumer market
+	- Fingerprint scanner
+		• Captures the unique pattern of ridges and valleys on a finger
+	- Voice recognition
+	- Hand geometry
+	- Behavior characteristics
+A biometric system consists of three different components:
+	- Sensor
+		• Records
+		• Reads it when your biometric information needs to be recognized
+	- Computer
+		• Storing the information for comparison
+	- Software
+		• Connects the computer hardware to the sensor
+
