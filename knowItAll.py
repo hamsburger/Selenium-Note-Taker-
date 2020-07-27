@@ -15,6 +15,7 @@ import threading
 from collections import defaultdict
 import keyHandler
 import variables
+sys.path.append("..")
 import ChromeDriver
 
 
