@@ -18,7 +18,7 @@ class KeyThread:
         self.driver = driver
         self.urlKnowledge = ""
         self.url = ""
-        self.currBaseText = "" 
+        self.currBaseText = ""
         print("Init!")
 
 
@@ -39,11 +39,11 @@ class KeyThread:
         newStart = start
         newEnd = end
 
-        while currBaseText[newEnd] != " " and newEnd < len(currBaseText) - 1:
+        while newEnd < len(currBaseText) and currBaseText[newEnd] != " ":
             newEnd += 1
         
-        while currBaseText[newStart] != " " and newStart > 0:
-            newStart -= 1            
+        while newStart > 0 and currBaseText[newStart] != " ":
+            newStart -= 1        
         
         return [newStart, newEnd]
 
@@ -65,6 +65,7 @@ class KeyThread:
                 return 
 
             recentKnowledge = self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"]
+            print(recentKnowledge, self.currBaseText)
             searchF = re.search(recentKnowledge, self.currBaseText, re.I)
             if searchF == None:
                 return 
@@ -86,16 +87,20 @@ class KeyThread:
                 return
 
             print("Can't Pop. No Knowledge In The List")
+
+        def freeze():
+            print("Freeze")
             
         def printKnowledge():
             print(self.urlKnowledge[self.url])
-    
+
         ## Keys Are Ready
         hotKeys = keyboard.GlobalHotKeys({
             '<shift>+-' : subtractLevel,
             '<shift>+=' : addLevel,
             '<shift>+f' : fillText, 
             '<shift>+p' : printKnowledge,
+            '<alt>+f' : freeze,
             '<esc>' : pop,
         })
         

@@ -21,7 +21,7 @@ import ChromeDriver
 
 
 def logException():
-    logging.error("-------------------------------------------------------\nError Occured")
+    logging.exception("-------------------------------------------------------\nException Occured")
 
 def isAddTextValid(prevText, text, learnedDetails):
     '''
@@ -68,7 +68,7 @@ def WriteOutlearnedDetails(focus, learnedDetails):
 def main():
     driver = ChromeDriver.ChromeDriver()
     LOG_FILENAME = "events.log"
-    logging.basicConfig(filename=LOG_FILENAME, format="%(asctime)s", level=logging.ERROR, filemode='a')
+    logging.basicConfig(filename=LOG_FILENAME, format="%(asctime)s", level=logging.EXCEPTION, filemode='a')
     
     ## Test Website 
 

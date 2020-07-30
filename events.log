@@ -1,0 +1,89 @@
+2020-07-27 11:37:11,284
+2020-07-27 11:41:10,976
+2020-07-27 12:04:28,712
+2020-07-27 12:25:16,251
+2020-07-27 15:14:03,060
+2020-07-27 16:51:09,779
+2020-07-27 16:54:38,059
+2020-07-27 17:26:12,141
+2020-07-27 20:54:29,358
+2020-07-29 04:17:37,328
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 74, in fillText
+    newStart, newEnd = self.traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 42, in traverseTillSpace
+    while currBaseText[newEnd] != " " and newEnd < len(currBaseText) - 1:
+IndexError: string index out of range
+2020-07-29 04:18:11,961
+2020-07-29 04:29:08,063
+2020-07-29 04:45:25,464
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 74, in fillText
+    newStart, newEnd = self.traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 42, in traverseTillSpace
+    while currBaseText[newEnd] != " " and newEnd < len(currBaseText) - 1:
+IndexError: string index out of range
+2020-07-29 04:45:51,300
+2020-07-29 04:48:04,886
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 75, in fillText
+    newStart, newEnd = self.traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 42, in traverseTillSpace
+    while currBaseText[newEnd] != " " and newEnd < len(currBaseText) - 1:
+IndexError: string index out of range
+2020-07-29 04:49:00,367
+2020-07-29 04:53:51,289
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 75, in fillText
+    newStart, newEnd = self.traverseTillSpace(start, end - 1, self.currBaseText, recentKnowledge)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 42, in traverseTillSpace
+    while currBaseText[newEnd] != " " and newEnd < len(currBaseText) - 1:
+IndexError: string index out of range
+2020-07-29 05:13:49,840
+2020-07-29 15:05:02,772
+2020-07-29 15:16:57,169
+2020-07-29 15:34:22,419
+Traceback (most recent call last):
+  File "knowItAll.py", line 88, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
