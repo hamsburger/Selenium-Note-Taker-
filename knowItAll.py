@@ -23,6 +23,12 @@ import ChromeDriver
 def logException():
     logging.exception("-------------------------------------------------------\nException Occured")
 
+def processText(text : str):
+    text = re.sub("[\\t\\n]+", " ", text).strip() ## Remove line breaks and tabs, and also any punctuation at the end. 
+    text = re.sub("[\.\?\,]$", "", text)
+    text = text[0:1].upper() + text[1:]
+    return text 
+
 def isAddTextValid(prevText, text, learnedDetails):
     '''
         Title: isAddTextValid
@@ -68,41 +74,48 @@ def WriteOutlearnedDetails(focus, learnedDetails):
 def main():
     driver = ChromeDriver.ChromeDriver()
     LOG_FILENAME = "events.log"
-    logging.basicConfig(filename=LOG_FILENAME, format="%(asctime)s", level=logging.EXCEPTION, filemode='a')
+    logging.basicConfig(filename=LOG_FILENAME, format="%(asctime)s", level=logging.ERROR, filemode='a')
     
     ## Test Website 
-
     prevText = ""
     currBaseText = ""
     level = 0
     urlKnowledge = defaultdict(list) # key -> url, value -> list of highlighted text
+    urlWindowNames = {}
+    newWindowIndex = 0
+    windowIndex = 0
+
     focus = input("What is Your Focus?")
     
     keyThread = keyHandler.KeyThread(driver) 
     hotKeyThread = keyThread.activateHotKeys() ## You Must Return this thread to run multithreading?
     print(hotKeyThread)
     print("Thread Count: ", threading.active_count())
+    
     while True:
         try: 
             url = driver.driver.current_url
+
             time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s 
             text, baseText = driver.getSelectedText()
-            text = re.sub("[\\t\\n]+", " ", text).strip() ## Remove line breaks and tabs, and also any punctuation at the end. 
-            text = re.sub("[\.\?\,]$", "", text)
-            text = text[0:1].upper() + text[1:]
-            keyThread.updateKeyThread(url, urlKnowledge, currBaseText) ## Make sure key is updated without empty url values
-
+            text = processText(text)         
+            keyThread.updateKeyThread(url, urlKnowledge, currBaseText, len(driver.driver.window_handles)) ## Make sure key is updated without empty url values
+            
+            ## Add Text if Valid
             if isAddTextValid(prevText, text, urlKnowledge[url]):
                 urlKnowledge[url].append({"detail" : text, "level" : level})
                 currBaseText = baseText
                 keyThread.updateKeyThread(url, urlKnowledge, currBaseText)
 
+            if newWindowIndex != windowIndex: 
+                driver.switch_to_new_tab(newWindowIndex)
+                windowIndex = newWindowIndex                 
             
-
+            ## Sync keyThread values with Main Thread Values
             keyVariables = keyThread.updateMainThread()
-            currBaseText, url, urlKnowledge, level = [keyVariables["currBaseText"], keyVariables["url"], \
-            keyVariables["urlKnowledge"], keyVariables["level"]]
-
+            currBaseText, url, urlKnowledge, level, newWindowIndex = [keyVariables["currBaseText"], keyVariables["url"], \
+            keyVariables["urlKnowledge"], keyVariables["level"], keyVariables["windowIndex"]]
+            
             # print(str(level) + ". ")
             # for knowledge in urlKnowledge[url]:
             #     print(knowledge["detail"] + "\n")

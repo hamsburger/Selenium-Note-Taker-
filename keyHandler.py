@@ -1,5 +1,5 @@
 from pynput import keyboard
-from pynput.keyboard import Key, Controller 
+from pynput.keyboard import Key, Controller
 import time
 import re
 import atexit
@@ -19,18 +19,21 @@ class KeyThread:
         self.urlKnowledge = ""
         self.url = ""
         self.currBaseText = ""
+        self.windowIndex = 0
+        self.numWindows = 0
         print("Init!")
 
 
     def updateMainThread(self):
-        return {"urlKnowledge" : self.urlKnowledge, "url" : self.url, "currBaseText" : self.currBaseText, "level" : self.level}
+        return {"urlKnowledge" : self.urlKnowledge, "url" : self.url, "currBaseText" : self.currBaseText, "level" : self.level, "windowIndex" : self.windowIndex}
 
     ## This only needs to be updated upon adding text (highlighting text) 
-    def updateKeyThread(self, url, urlKnowledge, currBaseText):
+    def updateKeyThread(self, url, urlKnowledge, currBaseText, numWindows):
         self.url = url
         self.urlKnowledge = urlKnowledge
         self.currBaseText = currBaseText 
-    
+        self.numWindows = numWindows
+
     def traverseTillSpace(self, start, end, currBaseText, recentKnowledge):
         '''
             From the first match, traverse till first space or till beginning. 
@@ -52,13 +55,11 @@ class KeyThread:
             self.level += 1
             print("Added level: ", self.level)
             
-
         def subtractLevel():
             if self.level > 0:
                 self.level -= 1
             print("Subtract Level: ", self.level)
             
-
         def fillText():
             
             if len(self.urlKnowledge[self.url]) == 0:
@@ -76,7 +77,6 @@ class KeyThread:
             self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"] = self.currBaseText[newStart:newEnd]
             print("Text formatted from: " + recentKnowledge + " to " + self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"])
             
-
         def pop():
             if len(self.urlKnowledge[self.url]) != 0:
                 poppedString = "Pop " + self.urlKnowledge[self.url].pop()["detail"]
@@ -94,6 +94,34 @@ class KeyThread:
         def printKnowledge():
             print(self.urlKnowledge[self.url])
 
+        def changeWindowHandle():
+            inputValid = False
+            windowIndex = ""
+        
+            while not inputValid:
+                try: 
+                    windowIndex = input("Which window index would you like to switch to?")
+                    match = re.match(r"^[0-9]+$", windowIndex)
+                    
+                    ## Check integer >= 0
+                    if match == None:
+                        print("Please enter an integer >= 0.")
+                        continue
+
+                    windowIndex = int(windowIndex)
+
+                    ## check selected index less than number of windows  
+                    if windowIndex >= self.numWindows:
+                        print("Index >= length of window handles.")
+                        continue
+
+                    inputValid = True
+                except:
+                    inputValid = False 
+            
+            print("Switched to Index", str(windowIndex))
+            self.windowIndex = windowIndex
+
         ## Keys Are Ready
         hotKeys = keyboard.GlobalHotKeys({
             '<shift>+-' : subtractLevel,
@@ -101,6 +129,7 @@ class KeyThread:
             '<shift>+f' : fillText, 
             '<shift>+p' : printKnowledge,
             '<alt>+f' : freeze,
+            '<alt>+s' : changeWindowHandle,
             '<esc>' : pop,
         })
         

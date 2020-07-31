@@ -87,3 +87,13 @@ Traceback (most recent call last):
   File "knowItAll.py", line 88, in main
     time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
 KeyboardInterrupt
+2020-07-30 23:21:03,129
+Traceback (most recent call last):
+  File "knowItAll.py", line 97, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-07-31 10:49:40,680
+Traceback (most recent call last):
+  File "knowItAll.py", line 99, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
