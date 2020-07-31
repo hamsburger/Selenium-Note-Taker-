@@ -20,14 +20,13 @@ class ChromeDriver:
         # atexit.register(self.goodbye)
 
     ### Code to Execute If Selenium Unexpectedly Exits
+    
     def goodbye(self):
         ActionChains(self.driver).send_keys(Keys.ALT, 'F').send_keys('X')
     def configDriver(self):
         options = webdriver.ChromeOptions()                         
-        options.add_argument("--user-data-dir=C:/Users/harri/AppData/Local/Google/Chrome/User Data")
-        options.add_argument("--profile-directory=Profile 1")
         options.add_extension("C:/Users/harri/Documents/Programming/Pure_Skills/Python/SeleniumDriver/pdf_viewer.crx")
-        options.set_capability('unhandledPromptBehavior', 'accept')
+        options.set_capability('unhandledPromptBehavior', 'accept') ## allow prompts
         return options
     def launchDriver(self, options):
         subprocess.call("bash dGCache", shell=True) ## Remove Cache      

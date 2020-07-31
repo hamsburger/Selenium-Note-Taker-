@@ -1,0 +1,17 @@
+---------------------18:34 https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication ------------------------------------------------
+RFC 7235 defines the HTTP authentication framework
+The challenge and response flow
+Proxy authentication
+	- The challenging status code is 407 (Proxy Authentication Required)
+Access forbidden
+	- Server should respond with the 403 Forbidden status code
+WWW-Authenticate and Proxy-Authenticate headers
+	- WWW-Authenticate: <type> realm=<realm>
+	- Proxy-Authenticate: <type> realm=<realm>
+	- <type> is the authentication scheme
+	- Realm is used to describe the protected area or to indicate the scope of protection
+		• Could be a message like "Access to the staging site"
+Authorization and Proxy-Authorization headers
+	- Authorization: <type> <credentials>
+	- Proxy-Authorization: <type> <credentials>
+
