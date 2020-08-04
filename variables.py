@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Variables:
     def __init__():
         self.prevText = ""
@@ -7,3 +9,5 @@ class Variables:
         self.urlWindowNames = {}
         self.newWindowIndex = 0
         self.windowIndex = 0
+
+    

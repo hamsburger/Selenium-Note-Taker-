@@ -97,3 +97,60 @@ Traceback (most recent call last):
   File "knowItAll.py", line 99, in main
     time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
 KeyboardInterrupt
+2020-08-01 18:33:41,151
+Traceback (most recent call last):
+  File "knowItAll.py", line 111, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-03 17:28:26,838
+Traceback (most recent call last):
+  File "knowItAll.py", line 112, in main
+    url = driver.driver.current_url
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 669, in current_url
+    return self.execute(Command.GET_CURRENT_URL)['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=84.0.4147.105)
+
+2020-08-03 17:30:45,116
+Traceback (most recent call last):
+  File "knowItAll.py", line 116, in main
+    if not len(driver.driver.window_handles):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 724, in window_handles
+    return self.execute(Command.W3C_GET_WINDOW_HANDLES)['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=84.0.4147.105)
+
+2020-08-03 17:32:25,129
+Traceback (most recent call last):
+  File "knowItAll.py", line 116, in main
+    if not len(driver.driver.window_handles):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 724, in window_handles
+    return self.execute(Command.W3C_GET_WINDOW_HANDLES)['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=84.0.4147.105)
+
+2020-08-03 17:41:51,817
+Traceback (most recent call last):
+  File "knowItAll.py", line 116, in main
+    print(len(driver.driver.window_handles))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 724, in window_handles
+    return self.execute(Command.W3C_GET_WINDOW_HANDLES)['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: chrome not reachable
+  (Session info: chrome=84.0.4147.105)
+

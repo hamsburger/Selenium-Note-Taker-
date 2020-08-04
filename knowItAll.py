@@ -13,6 +13,9 @@ import re
 import keyboard
 import threading
 from collections import defaultdict
+from selenium.common.exceptions import NoSuchElementException, WebDriverException, \
+NoSuchWindowException, ElementNotInteractableException, JavascriptException
+
 import keyHandler
 import variables
 sys.path.append("..")
@@ -21,15 +24,23 @@ import ChromeDriver
 
 
 def logException():
+    '''
+        Log Exceptions
+    '''
     logging.exception("-------------------------------------------------------\nException Occured")
 
 def processText(text : str):
+    '''
+        Process Text
+        @param text: Process highlighted text. 
+    '''
     text = re.sub("[\\t\\n]+", " ", text).strip() ## Remove line breaks and tabs, and also any punctuation at the end. 
     text = re.sub("[\.\?\,]$", "", text)
     text = text[0:1].upper() + text[1:]
     return text 
 
 def isAddTextValid(prevText, text, learnedDetails):
+
     '''
         Title: isAddTextValid
         Context: @prevText -- text found 0.5 seconds before @text is found.
@@ -37,8 +48,7 @@ def isAddTextValid(prevText, text, learnedDetails):
 
         Description: Finds prevText at 0-0.5 seconds, and finds text in 0.5s-1s. 
                      If text === prevText, text is added to learnedDetails. If not, text is not added
-                     This ensures that text is only added to learnedDetails when the same amount
-                     of text is highlighted for a certain duration.       
+                     This ensures that text is only added to learnedDetails when it has been highlighted for a certain duration.       
     '''
     sameText = (prevText == text)
     notEmpty = (text != '')
@@ -51,6 +61,11 @@ def isAddTextValid(prevText, text, learnedDetails):
     return sameText and notEmpty and not textAlreadyExists  
       
 def WriteOutlearnedDetails(focus, learnedDetails):
+    '''
+        Write out knowledge in a text file.
+        @param focus -- Title of text file. 
+        @param learnedDetails -- Details learned, which are categorized in URLs. 
+    '''
     print(focus, learnedDetails)
     fileName = focus + "--" + str(datetime.date.today()) + ".txt"
     currTime = datetime.datetime.now().time() 
@@ -97,6 +112,11 @@ def main():
             url = driver.driver.current_url
 
             time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s 
+
+            if newWindowIndex != windowIndex: 
+                driver.switch_to_new_tab(newWindowIndex)
+                windowIndex = newWindowIndex   
+            
             text, baseText = driver.getSelectedText()
             text = processText(text)         
             keyThread.updateKeyThread(url, urlKnowledge, currBaseText, len(driver.driver.window_handles)) ## Make sure key is updated without empty url values
@@ -105,12 +125,8 @@ def main():
             if isAddTextValid(prevText, text, urlKnowledge[url]):
                 urlKnowledge[url].append({"detail" : text, "level" : level})
                 currBaseText = baseText
-                keyThread.updateKeyThread(url, urlKnowledge, currBaseText)
+                keyThread.updateKeyThread(url, urlKnowledge, currBaseText, len(driver.driver.window_handles))
 
-            if newWindowIndex != windowIndex: 
-                driver.switch_to_new_tab(newWindowIndex)
-                windowIndex = newWindowIndex                 
-            
             ## Sync keyThread values with Main Thread Values
             keyVariables = keyThread.updateMainThread()
             currBaseText, url, urlKnowledge, level, newWindowIndex = [keyVariables["currBaseText"], keyVariables["url"], \
@@ -121,11 +137,14 @@ def main():
             #     print(knowledge["detail"] + "\n")
                 
             prevText = text
-        except KeyboardInterrupt:
+        except NoSuchWindowException:
+            driver.switch_to_new_tab(len(driver.driver.window_handles))
+        except (KeyboardInterrupt, WebDriverException):
             WriteOutlearnedDetails(focus, urlKnowledge)
             logException()
             hotKeyThread.stop()
             sys.exit(0)
+        
 
 if __name__ == "__main__":
     main()
