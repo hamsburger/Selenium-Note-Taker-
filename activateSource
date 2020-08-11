@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sourcefile="c:/Users/harri/Documents/Programming/Pure_Skills/Python/practicePackage/Scripts/activate"
+source ${sourcefile}

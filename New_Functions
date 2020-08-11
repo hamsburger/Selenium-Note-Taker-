@@ -1,16 +1,25 @@
 Done: 
 - Press ESC To Erase Most Recent Entry. (Yep!)
 - Press f To Fill Up Missing Text From Previous Selection (Yep!) 
-- Use BulletPoints to Separate Information 
-- Categorize And Search Information (Almost As If You're Dealing with a Pivot Tablegit i)
+- Use BulletPoints to Separate Information (Yep!)
+- Categorize And Search Information (Almost As If You're Dealing with a Pivot Tables)
 
 Key Handler:
-- MAKE KEYTHREAD ASYNCHRONOUS, NON-BLOCKING
-- Read Text
+- MAKE KEYTHREAD ASYNCHRONOUS, NON-BLOCKING (Yep!)
+- Read Text 
 - Update Text
 
 
 NEW: 
-    - Highlight text in different tabs.
+    - Highlight text in different tabs. (Currently DEBUGGING)
     - Freeze text when you don't want to record input. 
-    
+    - Run a Google Search of topics under the category NEW/UNKNOWN:
+    - Python GUI for Tracking your Notes
+    - Keep a database of words that you know, and put any terms that you don't know
+      under the category NEW/UNKNOWN: 
+     
+
+Nutritions Collector:
+- Python MySQL
+  -> Connect before flask loads.
+  -> Multiprocessing

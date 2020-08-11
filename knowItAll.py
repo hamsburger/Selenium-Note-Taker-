@@ -1,5 +1,5 @@
 """
-    Title: knowItAll.py
+    Title: knowItAll.pyT
     Author: Harris Zheng
     Description: Save Words Selected By User On The Web
 """
@@ -95,10 +95,12 @@ def main():
     prevText = ""
     currBaseText = ""
     level = 0
+    fileKnowledge = defaultdict(list) # key -> fileName, value -> list of urlKnowledge 
     urlKnowledge = defaultdict(list) # key -> url, value -> list of highlighted text
     urlWindowNames = {}
     newWindowIndex = 0
     windowIndex = 0
+    freeze = False
 
     focus = input("What is Your Focus?")
     
@@ -111,11 +113,12 @@ def main():
         try: 
             url = driver.driver.current_url
 
+            ## freeze loop
+            while freeze:
+                freeze = freeze
+            
             time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s 
-
-            if newWindowIndex != windowIndex: 
-                driver.switch_to_new_tab(newWindowIndex)
-                windowIndex = newWindowIndex   
+            driver.switch_to_new_tab(newWindowIndex) 
             
             text, baseText = driver.getSelectedText()
             text = processText(text)         
@@ -129,8 +132,8 @@ def main():
 
             ## Sync keyThread values with Main Thread Values
             keyVariables = keyThread.updateMainThread()
-            currBaseText, url, urlKnowledge, level, newWindowIndex = [keyVariables["currBaseText"], keyVariables["url"], \
-            keyVariables["urlKnowledge"], keyVariables["level"], keyVariables["windowIndex"]]
+            currBaseText, url, urlKnowledge, level, newWindowIndex, freeze = [keyVariables["currBaseText"], keyVariables["url"], \
+            keyVariables["urlKnowledge"], keyVariables["level"], keyVariables["windowIndex"], keyVariables["freeze"]]
             
             # print(str(level) + ". ")
             # for knowledge in urlKnowledge[url]:

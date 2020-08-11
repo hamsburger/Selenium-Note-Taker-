@@ -21,11 +21,13 @@ class KeyThread:
         self.currBaseText = ""
         self.windowIndex = 0
         self.numWindows = 0
+        self.freeze = False
         print("Init!")
 
 
     def updateMainThread(self):
-        return {"urlKnowledge" : self.urlKnowledge, "url" : self.url, "currBaseText" : self.currBaseText, "level" : self.level, "windowIndex" : self.windowIndex}
+        return {"urlKnowledge" : self.urlKnowledge, "url" : self.url, "currBaseText" : self.currBaseText, "level" : self.level, "windowIndex" : self.windowIndex,
+        "freeze" : self.freeze}
 
     ## This only needs to be updated upon adding text (highlighting text) 
     def updateKeyThread(self, url, urlKnowledge, currBaseText, numWindows):
@@ -50,18 +52,23 @@ class KeyThread:
         
         return [newStart, newEnd]
 
+    def isFreeze(self):
+        return self.freeze
+
     def activateHotKeys(self):  
         def addLevel():
+            if self.isFreeze(): return
             self.level += 1
             print("Added level: ", self.level)
             
         def subtractLevel():
+            if self.isFreeze(): return
             if self.level > 0:
                 self.level -= 1
             print("Subtract Level: ", self.level)
             
         def fillText():
-            
+            if self.isFreeze(): return
             if len(self.urlKnowledge[self.url]) == 0:
                 return 
 
@@ -78,6 +85,7 @@ class KeyThread:
             print("Text formatted from: " + recentKnowledge + " to " + self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"])
             
         def pop():
+            if self.isFreeze(): return
             if len(self.urlKnowledge[self.url]) != 0:
                 poppedString = "Pop " + self.urlKnowledge[self.url].pop()["detail"]
 
@@ -89,12 +97,15 @@ class KeyThread:
             print("Can't Pop. No Knowledge In The List")
 
         def freeze():
-            print("Freeze")
+            self.freeze = not self.freeze
+            print("Freeze: %r" % (self.freeze))
             
         def printKnowledge():
+            if self.isFreeze(): return
             print(self.urlKnowledge[self.url])
 
         def changeWindowHandle():
+            if self.isFreeze(): return
             inputValid = False
             windowIndex = ""
         
@@ -128,7 +139,7 @@ class KeyThread:
             '<shift>+=' : addLevel,
             '<shift>+f' : fillText, 
             '<shift>+p' : printKnowledge,
-            '<alt>+f' : freeze,
+            '<alt>+<shift>+f' : freeze,
             '<alt>+s' : changeWindowHandle,
             '<esc>' : pop,
         })

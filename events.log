@@ -154,3 +154,213 @@ Traceback (most recent call last):
 selenium.common.exceptions.WebDriverException: Message: chrome not reachable
   (Session info: chrome=84.0.4147.105)
 
+2020-08-03 17:53:39,702
+Traceback (most recent call last):
+  File "knowItAll.py", line 114, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-04 16:14:53,515
+Traceback (most recent call last):
+  File "knowItAll.py", line 114, in main
+KeyboardInterrupt
+2020-08-05 02:08:53,664
+Traceback (most recent call last):
+  File "knowItAll.py", line 115, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-06 16:46:13,929
+Traceback (most recent call last):
+  File "knowItAll.py", line 115, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-07 12:24:13,138
+Traceback (most recent call last):
+  File "knowItAll.py", line 113, in main
+    url = driver.driver.current_url
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 669, in current_url
+    return self.execute(Command.GET_CURRENT_URL)['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 76, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 97, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+2020-08-07 12:36:59,537
+Traceback (most recent call last):
+  File "knowItAll.py", line 115, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-07 12:57:52,452
+Traceback (most recent call last):
+  File "knowItAll.py", line 118, in main
+    text, baseText = driver.getSelectedText()
+  File "..\ChromeDriver.py", line 119, in getSelectedText
+    except JavascriptException:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 636, in execute_script
+    'args': converted_args})['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+2020-08-07 20:25:38,066
+Traceback (most recent call last):
+  File "knowItAll.py", line 118, in main
+    text, baseText = driver.getSelectedText()
+  File "..\ChromeDriver.py", line 111, in getSelectedText
+    browserText = self.driver.execute_script("return window.getSelection().toString()")
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 636, in execute_script
+    'args': converted_args})['value']
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 319, in execute
+    response = self.command_executor.execute(driver_command, params)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 374, in execute
+    return self._request(command_info[0], url, body=data)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 397, in _request
+    resp = self._conn.request(method, url, body=body, headers=headers)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 80, in request
+    method, url, fields=fields, headers=headers, **urlopen_kw
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\request.py", line 171, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\poolmanager.py", line 336, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 677, in urlopen
+    chunked=chunked,
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 426, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\urllib3\connectionpool.py", line 421, in _make_request
+    httplib_response = conn.getresponse()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 1321, in getresponse
+    response.begin()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\harri\AppData\Local\Programs\Python\Python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+KeyboardInterrupt
+2020-08-08 19:49:48,410
+Traceback (most recent call last):
+  File "knowItAll.py", line 115, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-10 11:07:28,746
+Traceback (most recent call last):
+  File "knowItAll.py", line 115, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-11 12:16:39,400
+Traceback (most recent call last):
+  File "knowItAll.py", line 115, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-11 12:19:43,896
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 94, in freeze
+    self.freeze = not self.Freeze
+AttributeError: 'KeyThread' object has no attribute 'Freeze'
+2020-08-11 12:19:55,104
+Traceback (most recent call last):
+  File "knowItAll.py", line 120, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-11 12:21:02,348
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 94, in freeze
+    self.freeze = not self.Freeze
+AttributeError: 'KeyThread' object has no attribute 'Freeze'
+2020-08-11 12:22:06,124
+Traceback (most recent call last):
+  File "knowItAll.py", line 120, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-11 12:53:23,721
+Traceback (most recent call last):
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 243, in _on_press
+    hotkey.press(self.canonical(key))
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\practicePackage\lib\site-packages\pynput\keyboard\__init__.py", line 202, in press
+    self._on_activate()
+  File "C:\Users\harri\Documents\Programming\Pure_Skills\Python\SeleniumDriver\Knowledge_selector\keyHandler.py", line 71, in fillText
+    if isFreeze(): return
+NameError: name 'isFreeze' is not defined
+2020-08-11 12:53:31,410
+Traceback (most recent call last):
+  File "knowItAll.py", line 120, in main
+    time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s
+KeyboardInterrupt
+2020-08-11 13:02:07,768
+Traceback (most recent call last):
+  File "knowItAll.py", line 118, in main
+    freeze = freeze
+KeyboardInterrupt
