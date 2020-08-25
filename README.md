@@ -9,7 +9,8 @@ Launch a Chrome Browser by launching this command in the command line.
 python knowItAll.py
 ```
 
-Then, input in a name for the file into which you will output your notes.
+Wait for Chrome Driver to Launch. Then, the program will ask you to input in a name 
+for the file into which you will output your notes.
 
 After completing the above steps, you can begin selecting text in the browser and storing notes. Each note you take using an URL will be shown under the URL with that header, like this
 
