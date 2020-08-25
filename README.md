@@ -1,7 +1,8 @@
 # Selenium Note Taker 📝 An Automated Note-Taking Software
 
-![Gif](https://media.giphy.com/media/U51DcStRjNOTKFaznO/giphy.gif)
 ### Guide Link
+![Gif](https://media.giphy.com/media/U51DcStRjNOTKFaznO/giphy.gif)
+
 &nbsp;
 ## HOWTO Use (IMPORTANT! READ IT ALL):
 Launch a Chrome Browser by launching this command in the command line in your root directory. 
@@ -13,7 +14,7 @@ python knowItAll.py
 Wait for Chrome Driver to Launch. Then, the program will ask you to input in a name 
 for the file into which you will output your notes.
 
-After completing the above steps, you can begin (**highlighting** text[https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#guide-link]) in the browser and storing notes. Each note you take using an URL will be shown under the URL with that header, like this
+After completing the above steps, you can begin (**highlighting** text)[https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#guide-link]) in the browser and storing notes. Each note you take using an URL will be shown under the URL with that header, like this
 
 ![Notes](https://github.com/harris222/Selenium-Note-Taker-/blob/master/Example%20Notes/Notes.PNG)
 
