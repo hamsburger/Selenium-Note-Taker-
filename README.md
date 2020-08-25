@@ -21,7 +21,7 @@ You can configure your notes using key commands. [See them here](https://github.
 
 &nbsp;
 ## Some Imperfect Features:
-- To take notes from a tab in which you did not initially launch your ChromeDriver, you must press <alt>+s to change to that tab ([See <alt>+s](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#change-window-handle)).
+- To take notes from a tab in which you did not initially launch your ChromeDriver, you must press \<alt\>+s to change to that tab ([See \<alt\>+s](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#change-window-handle)).
 - Note printing prints out an python list, which is rather not human-readable. 
 - A User cannot reformat all indents they've accidentally indented one level too far. A TkInter Text Editor should allow the user to visualize their notes
     and reconfigure indents.
