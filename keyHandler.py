@@ -112,18 +112,18 @@ class KeyThread:
             while not inputValid:
                 try: 
                     windowIndex = input("Which window index would you like to switch to?")
-                    match = re.match(r"^[0-9]+$", windowIndex)
+                    match = re.match(r"^[1-9]+$", windowIndex)
                     
                     ## Check integer >= 0
                     if match == None:
-                        print("Please enter an integer >= 0.")
+                        print("Please enter an integer >= 1.")
                         continue
 
                     windowIndex = int(windowIndex)
 
                     ## check selected index less than number of windows  
-                    if windowIndex >= self.numWindows:
-                        print("Index >= length of window handles.")
+                    if windowIndex > self.numWindows:
+                        print("Index cannot be greater than the length of tabs opened.")
                         continue
 
                     inputValid = True
@@ -137,7 +137,7 @@ class KeyThread:
         hotKeys = keyboard.GlobalHotKeys({
             '<shift>+-' : subtractLevel,
             '<shift>+=' : addLevel,
-            '<shift>+f' : fillText, 
+            '<shift>+t' : fillText, 
             '<shift>+p' : printKnowledge,
             '<alt>+<shift>+f' : freeze,
             '<alt>+s' : changeWindowHandle,

@@ -107,9 +107,6 @@ def main():
     print("Thread Count: ", threading.active_count())
     
     while True:
-        print("All Windows: ", driver.driver.window_handles)
-        print("Current Window: ", driver.driver.current_window_handle)
-
         try: 
             url = driver.driver.current_url
 
@@ -118,7 +115,7 @@ def main():
                 freeze = freeze
             
             time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s 
-            driver.switch_to_new_tab(newWindowIndex) 
+            driver.switch_to_new_tab(newWindowIndex-1) 
             
             text, baseText = driver.getSelectedText()
             text = processText(text)         
