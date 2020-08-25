@@ -115,17 +115,11 @@ def main():
 
             ## freeze loop
             while freeze:
-                keyVariables = keyThread.updateMainThread()
-                _, _, _, _, _, freeze = [keyVariables["currBaseText"], keyVariables["url"], \
-                keyVariables["urlKnowledge"], keyVariables["level"], keyVariables["windowIndex"], keyVariables["freeze"]]
-                continue
-            
-            ## Determine if tab switch is commanded
-            driver.switch_to_new_tab(newWindowIndex)     
+                freeze = freeze
             
             time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s 
-        
-            # Get Selected Text. and Write selected text to keythread for further operations
+            driver.switch_to_new_tab(newWindowIndex) 
+            
             text, baseText = driver.getSelectedText()
             text = processText(text)         
             keyThread.updateKeyThread(url, urlKnowledge, currBaseText, len(driver.driver.window_handles)) ## Make sure key is updated without empty url values
@@ -135,12 +129,16 @@ def main():
                 urlKnowledge[url].append({"detail" : text, "level" : level})
                 currBaseText = baseText
                 keyThread.updateKeyThread(url, urlKnowledge, currBaseText, len(driver.driver.window_handles))
-            
+
             ## Sync keyThread values with Main Thread Values
             keyVariables = keyThread.updateMainThread()
             currBaseText, url, urlKnowledge, level, newWindowIndex, freeze = [keyVariables["currBaseText"], keyVariables["url"], \
             keyVariables["urlKnowledge"], keyVariables["level"], keyVariables["windowIndex"], keyVariables["freeze"]]
-           
+            
+            # print(str(level) + ". ")
+            # for knowledge in urlKnowledge[url]:
+            #     print(knowledge["detail"] + "\n")
+                
             prevText = text
         except NoSuchWindowException:
             driver.switch_to_new_tab(len(driver.driver.window_handles))

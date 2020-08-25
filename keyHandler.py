@@ -5,6 +5,7 @@ import re
 import atexit
 import logging 
 import sys
+
 ## Update urlKnowledge, url, currBaseText in Real Time (Setter)
 ## Update Level on Keypress  
 # class keyThread:
@@ -146,18 +147,5 @@ class KeyThread:
         hotKeys.start()
         return hotKeys
 
-
-def getFalse():
-    return False
 if __name__ == "__main__":
-    ## Keys Are Ready
-    hotKeys = keyboard.GlobalHotKeys({
-        '<shift>+-' : lambda: print("Add"),
-        '<shift>+=' : lambda: print("Minus"),
-        '<alt>+<shift>+f': lambda: print("Freeze"),
-        'f' : lambda: print("Fill Text"),
-        '<ctrl>+c': getFalse,
-    })
-    
-    hotKeys.start()
-    hotKeys.join()
+    activateHotKeys()

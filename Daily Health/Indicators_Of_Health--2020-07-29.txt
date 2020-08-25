@@ -88,7 +88,7 @@ Health conditions
 		• BMI
 		• Weight in kilograms divided by height in metres squared
 	- Youth body mass index
-		• classifies children aged 12 to 17
+		•  classifies children aged 12 to 17
 		• Except female respondents aged 15 to 17 who were pregnant or did not answer the pregnancy question
 	- Arthritis
 		• Includes both rheumatoid arthritis and osteoarthritis

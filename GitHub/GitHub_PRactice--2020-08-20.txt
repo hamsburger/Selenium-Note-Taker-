@@ -1,9 +1,0 @@
----------------------21:34 https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging ------------------------------------------------
-- if your working directory or staging area has uncommitted changes that conflict with the branch you’re checking out, Git won’t let you switch branches.
-- Git simplifies things by moving the pointer forward because there is no divergent work to merge together — this is called a “fast-forward.”
-Basic Merge Conflicts
-	- Anything that has merge conflicts and hasn’t been resolved is listed as unmerged
-	- The version in HEAD
-		• Top part of that block (everything above the =======)
-		• Hile the version in your iss53 branch looks like everything in the bottom part
-
