@@ -4,6 +4,14 @@
 ![Gif](https://media.giphy.com/media/U51DcStRjNOTKFaznO/giphy.gif)
 
 &nbsp;
+
+## Set-up
+To install requirements, run. Before running the requirements,
+I suggest you setup a virtualenv (python -m *environment_name*)
+```
+pip install -r requirements.txt
+```
+
 ## HOWTO Use (IMPORTANT! READ IT ALL):
 Launch a Chrome Browser by launching this command in the command line in your root directory. 
 
@@ -26,7 +34,10 @@ You can configure your notes using key commands. [See them here](https://github.
 - Note printing prints out a python list, which is not human-readable. 
 - A User cannot reformat all indents they've accidentally indented one level too far. A TkInter Text Editor should allow the user to visualize their notes
     and reconfigure indents.
-
+- User should be able to query their notes.
+- Software should suggest correlating information
+between notes that have been taken.
+- Software should consolidate user's knowledge of notes by testing user.
 &nbsp;
 ## HOWTO Important KeyCommands:
 ### Output Notes Into File : '\<ctrl\>+c':
