@@ -1,0 +1,3 @@
+---------------------11:07 https://realpython.com/python-concurrency/#what-is-concurrency ------------------------------------------------
+	- Because the operating system is in control of when your task gets interrupted and another task starts, any data that is shared between the threads needs to be protected, or thread-safe
+

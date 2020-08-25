@@ -1,0 +1,25 @@
+---------------------11:35 https://flask.palletsprojects.com/en/1.1.x/blueprints/ ------------------------------------------------
+Why Blueprints
+	- Factor an application into a set of blueprints
+	- Register a blueprint on an application at a URL prefix and/or subdomain
+	- Why not have multiple application objects? You can do that (see Application Dispatching), but your applications will have separate configs and will be managed at the WSGI layer
+	- Downside is that you cannot unregister a blueprint once an application was created without having to destroy the whole application object
+Registering Blueprints
+	- App.register_blueprint(simple_page)
+	- App.url_map
+		• App.register_blueprint(simple_page, url_prefix='/pages')
+Blueprint Resources
+	- The folder is inferred from the second argument to Blueprint which is usually __name__.
+Static Files
+	- Admin = Blueprint('admin', __name__, static_folder='static')
+	- Because the folder is called static here it will be available at the url_prefix of the blueprint + /static
+	- F the blueprint has the prefix /admin, the static URL will be /admin/static
+	- If the blueprint has the prefix /admin, the static URL will be /admin/static
+		• Url_for('admin.static', filename='style.css')
+	- So if you have a blueprint in the folder yourapplication/admin
+	- You want to render the template 'admin/index.html'
+	- You have provided templates as a template_folder
+		• You will have to create a file like this:
+			- Yourapplication/admin/templates/admin/index.html
+		• Extra admin folder is to avoid getting our template overridden by a template named index.html in the actual application template folder
+

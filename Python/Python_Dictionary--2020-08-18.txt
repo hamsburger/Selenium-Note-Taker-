@@ -1,0 +1,5 @@
+---------------------01:37 https://realpython.com/python-dicts/#defining-a-dictionary ------------------------------------------------
+	- A tuple can also be a dictionary key, because tuples are immutable:
+	- More precisely, an object must be hashable
+	- For example, the in and not in operators return True or False according to whether the specified operand occurs as a key in the dictionary:
+
