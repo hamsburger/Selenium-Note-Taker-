@@ -54,6 +54,6 @@ Freeze all note configuration commands, just in case if you want to do something
 
 ## Some General Usage Tips:
 - To remove a note, remember to not select it. Or else, it will be recorded
-again.
+again. ([Understand the Features](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#howto-use-important-read-it-all))
 
 Thank you for taking your time to read the README. If you want to recommend some features, send me a private message, issue or pull request!
