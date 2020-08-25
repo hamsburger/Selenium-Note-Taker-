@@ -11,10 +11,10 @@ Launch a Chrome Browser by launching this command in the command line in your ro
 python knowItAll.py
 ```
 
-Wait for Chrome Driver to Launch. Then, the program will ask you to input in a name 
-for the file into which you will output your notes.
+Wait for Chrome Driver to Launch. Then, the program will prompt for the name of your output file,
+which will contain the output of your notes.
 
-After completing the above steps, you can begin [**highlighting** text](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#guide-link]) in the browser and storing notes. Each note you take using an URL will be shown under the URL with that header, like this
+After completing the above steps, you can begin [**highlighting** text](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#guide-link) in the browser and store notes. Each note you take using an URL will be shown under the URL with that header, like this
 
 ![Notes](https://github.com/harris222/Selenium-Note-Taker-/blob/master/Example%20Notes/Notes.PNG)
 
@@ -36,7 +36,7 @@ Close Browser and write out notes to the file you specified.
 Print out notes that you have selected in the command line.
 
 #### Change Window Handle : '\<alt\>+s'
-Switch to a New Tab. Index 0 for first tab, 1 for second tab, 
+Switch to a New Tab. Index 1 for first tab, 2 for second tab, 
 ... and N for Nth Tab. 
 
 &nbsp;
@@ -47,7 +47,7 @@ Add An Indent Level.
 ### Subtract Indent : '\<shift\>+-'
 Subtract An Indent Level.
 
-### Fill Text : '\<shift\>+t
+### Fill Text : '\<shift\>+t'
 Fill in a sentence that you did not finish selecting.
 
 ### Pop : '\<esc\>'
