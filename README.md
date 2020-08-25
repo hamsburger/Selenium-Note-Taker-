@@ -2,6 +2,7 @@
 
 ![Gif](https://media.giphy.com/media/U51DcStRjNOTKFaznO/giphy.gif)
 
+&nbsp;
 ## HOWTO Use (IMPORTANT! READ IT ALL):
 Launch a Chrome Browser by launching this command in the command line. 
 
@@ -18,14 +19,14 @@ After completing the above steps, you can begin selecting text in the browser an
 
 You can configure your notes using key commands. [See them here](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#howto-important-keycommands)
 
-
+&nbsp;
 ## Some Imperfect Features:
 - To take notes from a tab in which you did not initially launch your ChromeDriver, you must press <alt>+s to change to that tab ([See <alt>+s](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#change-window-handle)).
 - Note printing prints out an python list, which is rather not human-readable. 
 - A User cannot reformat all indents they've accidentally indented one level too far. A TkInter Text Editor should allow the user to visualize their notes
     and reconfigure indents.
 
-
+&nbsp;
 ## HOWTO Important KeyCommands:
 ### Output Notes Into File : '\<ctrl\>+c':
 Close Browser and write out notes to the file you specified.
@@ -37,6 +38,7 @@ List the Current Knowledge that you have selected in the command line.
 Switch to a New Tab. Index 0 for first tab, 1 for second tab, 
 ... and N for Nth Tab. 
 
+&nbsp;
 ## HOWTO KeyCommands to Configure Your Notes:
 ### Add Indent : '\<shift\>+='
 Add An Indent Level.
@@ -53,6 +55,7 @@ Remove the text you just highlighted.
 ### Freeze : '\<alt\>+\<shift\>+f'
 Freeze all note configuration commands, just in case if you want to do something else and avoid accidentally configuring your notes.
 
+&nbsp;
 ## Some General Usage Tips:
 - To remove a note, remember to not select it. Or else, it will be recorded
 again. ([Understand the Features](https://github.com/harris222/Selenium-Note-Taker-/blob/master/README.md#howto-use-important-read-it-all))
