@@ -1,0 +1,11 @@
+---------------------12:16 https://dev.mysql.com/doc/refman/8.0/en/group-by-optimization.html ------------------------------------------------
+	- In some cases, MySQL is able to do much better than that and avoid creation of temporary tables by using index access
+	- Loose Index Scan
+		• The most efficient way to process GROUP BY is when an index is used to directly retrieve the grouping columns
+		• Enables use of lookup groups in an index without having to consider all keys in the index that satisfy all WHERE conditions
+		• Conditions:
+			- The GROUP BY names only columns that form a leftmost prefix of the index
+			- Any other parts of the index than those from the GROUP BY referenced in the query must be constants
+			- , except for the argument of MIN() or MAX() functions
+			- For columns in the index, full column values must be indexed, not just a prefix
+

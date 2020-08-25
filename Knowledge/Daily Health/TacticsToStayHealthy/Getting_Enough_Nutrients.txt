@@ -1,0 +1,22 @@
+How Do I get Enough Nutrients? How do I know they help me? 
+    - You have the get the right quantity, and you're just going to have to put 
+      trust into the research that people have done regarding to food. 
+
+How To I Gain Weight?
+    - Track to amount of energy you gain and burn.
+
+
+Dashboard #1:
+Features:
+    - Progress Bar Showing Percetange of DV you have consumed
+    - Show Distribution of a Single Nutrient Among Different Foods (Using Bar Chart and Pie Chart)
+    - Button and Search Query For Adding a Food from MYSQL Database. 
+
+Dashboard #2:
+Trends:
+    - Heart Beat Trend By Day
+    - Body Mass Trend By Day
+
+
+Dashboard #3:
+    - Dashboard for meal plan, heart beat and body mass records. 

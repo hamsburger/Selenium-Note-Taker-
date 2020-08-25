@@ -1,0 +1,10 @@
+---------------------16:46 https://docs.python.org/3/library/tkinter.html ------------------------------------------------
+Tkinter — Python interface to Tcl/Tk
+	- Python -m tkinter
+	- Tkinter includes a number of Python modules, tkinter.constants being one of the most important
+	- Importing tkinter will automatically import tkinter.constants
+Class tkinter.Tk
+	- Creates a toplevel widget of Tk which usually is the main window of an application
+Tkinter.Tcl
+	-  factory function which creates an object much like that created by the Tk class,
+

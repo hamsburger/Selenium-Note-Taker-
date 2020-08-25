@@ -1,0 +1,5 @@
+---------------------16:26 https://reactjs.org/docs/lifting-state-up.html ------------------------------------------------
+Lifting State Up
+	- Want these two inputs to be in sync with each other
+	- When we update the Celsius input, the Fahrenheit input should reflect the converted temperature, and vice versa
+

@@ -1,0 +1,23 @@
+---------------------02:08 https://docs.python.org/3/library/subprocess.html ------------------------------------------------
+Subprocess — Subprocess management
+	- This module intends to replace several older modules and functions:
+		• Os.system
+		• Os.spawn*
+	- Subprocess.run
+		• Run the command described by args. Wait for command to complete, then return a CompletedProcess instance
+		• Function signature is largely the same as that of the Popen constructor
+		• If capture_output is true, stdout and stderr will be captured
+		• Stdout=PIPE and stderr=PIPE
+		• Capture and combine both streams into one
+			- Use stdout=PIPE and stderr=STDOUT
+		• Timeout argument
+
+---------------------02:08 https://docs.python.org/3/library/subprocess.html#subprocess.Popen ------------------------------------------------
+Subprocess.Popen
+	- Arg
+	- Args
+		• Sequence of program arguments or else a single string or path-like object
+		• Shlex.split() can illustrate how to determine the correct tokenization for args
+		• POSIX
+	- On POSIX with shell=True, the shell defaults to /bin/sh.
+
