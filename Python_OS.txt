@@ -1,0 +1,15 @@
+---------------------1900-15-01/01/00 17:15 https://docs.python.org/3/library/os.html ------------------------------------------------
+Os.environ
+	- A mapping object representing the string environment
+Os.environb
+	- Bytes version of environ: a mapping object representing the environment as byte strings
+	- Environb is only available if supports_bytes_environ is True
+	- Os.fsencode(filename)
+	- Os.fsdecode(filename)
+	- Os.getpid()¶
+	- Os.getpid()
+Os.walk(top, topdown=True, onerror=None, followlinks=False
+Os.walk(top, topdown=True, onerror=None, followlinks=False)
+	- For each directory in the tree rooted at directory top (including top itself), it yields a 3-tuple (dirpath, dirnames, filenames)
+	- When topdown is True, the caller can modify the dirnames list in-place (perhaps using del or slice assignment), and walk() will only recurse into the subdirectories whose names remain in dirnames;
+

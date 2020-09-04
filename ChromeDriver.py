@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.common import exceptions as SExceptions
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from collections.abc import Mapping
 from collections import defaultdict
@@ -49,7 +50,7 @@ class ChromeDriver:
         return options
     def launchDriver(self, options):
         # subprocess.call("bash dGCache", shell=True) ## Remove Cache      
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.implicitly_wait(4)
         print("Driver at launchDriver:", driver)
         return driver
