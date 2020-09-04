@@ -12,6 +12,7 @@ import atexit
 import re
 import keyboard
 import threading
+import os
 from collections import defaultdict
 from selenium.common.exceptions import NoSuchElementException, WebDriverException, \
 NoSuchWindowException, ElementNotInteractableException, JavascriptException
@@ -19,6 +20,10 @@ NoSuchWindowException, ElementNotInteractableException, JavascriptException
 import keyHandler
 import variables
 import ChromeDriver
+
+## Globals
+ROOT_PATH = "C:/Users/harri/Documents/Programming/Pure_Skills/Python/SeleniumDriver/Knowledge_selector/"
+KNOWLEDGE_PATH = "./Knowledge"
 
 def logException():
     '''
@@ -57,23 +62,54 @@ def isAddTextValid(prevText, text, learnedDetails):
 
     return sameText and notEmpty and not textAlreadyExists  
       
+def findFileDirectory(ourFileName : str) -> str:
+    '''
+        @params : None
+        return the path in which our notes will be saved.
+    '''
+    foundFile = False
+    path = ROOT_PATH
+
+    ## Find if ourFileName is an existing note
+    for dirpath, dirnames, filenames in os.walk("./Knowledge"):
+        print("Current dirpath : ", dirpath)
+        print("Current files : ", filenames)
+        for filename in filenames:
+            ## If we find ourFileName inside the knowledge directory, then instead of writing .txt to root
+            ## We write it to dirpath.
+            if filename == ourFileName:
+                path = dirpath
+                foundFile = True
+                break
+
+        ## Do not continue walking if we have found file
+        if foundFile: break
+    
+    return os.path.join(path, ourFileName)
+    
 def WriteOutlearnedDetails(focus, learnedDetails):
     '''
-        Write out knowledge in a text file.
+        Search for file with a certain name in the file directory. Then, write out knowledge in a text file.
         @param focus -- Title of text file. 
         @param learnedDetails -- Details learned, which are categorized in URLs. 
     '''
     print(focus, learnedDetails)
-    fileName = focus + "--" + str(datetime.date.today()) + ".txt"
-    currTime = datetime.datetime.now().time() 
-    strCurrentTime = currTime.strftime("%H:%M")
-
-    with open(fileName, "a+", encoding="utf-8") as f:
+    ourFileName = focus + ".txt"
+    currTime = datetime.datetime.now()
+    strCurrentTime = currTime.strftime("%A %B %d, %Y -- %H:%M")
+    path = findFileDirectory(ourFileName)
+    print("Writing out to : ", path)
+            
+    
+    ## Need a function to recurse through the directories and find the right file path.
+    ## look into OS
+    
+    with open(path, "a+", encoding="utf-8") as f:
         
         ## For each url, write down its list of knowledge
         for url,knowledge in learnedDetails.items():
             if len(knowledge) != 0:
-                f.write("---------------------" + strCurrentTime + " " + url + " ------------------------------------------------\n")
+                f.write("---------------------", strCurrentTime ,"------------", url ," ------------------------------------------------\n")
                 for item in knowledge:
                     if (item["level"] != 0):
                         if item["level"] % 2 != 0:
@@ -92,7 +128,7 @@ def main():
     prevText = ""
     currBaseText = ""
     level = 0
-    fileKnowledge = defaultdict(list) # key -> fileName, value -> list of urlKnowledge 
+    fileKnowledge = defaultdict(list) # key -> ourFileName, value -> list of urlKnowledge 
     urlKnowledge = defaultdict(list) # key -> url, value -> list of highlighted text
     urlWindowNames = {}
     newWindowIndex = 0
@@ -112,10 +148,11 @@ def main():
 
             ## freeze loop
             while freeze:
-                freeze = freeze
+                keyVariables = keyThread.updateMainThread()
+                freeze = keyVariables["freeze"]
             
             time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s 
-            driver.switch_to_new_tab(newWindowIndex-1) 
+            driver.switch_to_new_tab(newWindowIndex) 
             
             text, baseText = driver.getSelectedText()
             text = processText(text)         

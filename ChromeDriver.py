@@ -33,6 +33,7 @@ class ChromeDriver:
         if self.driver.window_handles[self.windowIndex] == self.driver.window_handles[index]:
             return
         
+        # print("New Tab: %d" % index)
         self.driver.switch_to.window(self.driver.window_handles[index])
         self.windowIndex = index
     

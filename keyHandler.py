@@ -73,16 +73,16 @@ class KeyThread:
                 return 
 
             recentKnowledge = self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"]
-            print(recentKnowledge, self.currBaseText)
             searchF = re.search(recentKnowledge, self.currBaseText, re.I)
             if searchF == None:
+                print("Text cannot be formatted because text is missing a parent.")
                 return 
 
             start = searchF.start()
             end = searchF.end()
             newStart, newEnd = self.traverseTillSpace(start, end, self.currBaseText, recentKnowledge)
             self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"] = self.currBaseText[newStart:newEnd]
-            print("Text formatted from: " + recentKnowledge + " to " + self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"])
+            print("Text formatted from: \n\t" + recentKnowledge + " to \n\t" + self.urlKnowledge[self.url][len(self.urlKnowledge[self.url]) - 1]["detail"], "\n")
             
         def pop():
             if self.isFreeze(): return
@@ -131,7 +131,7 @@ class KeyThread:
                     inputValid = False 
             
             print("Switched to Index", str(windowIndex))
-            self.windowIndex = windowIndex
+            self.windowIndex = windowIndex - 1 ## We save windowIndex as windowIndex - 1 for index starting from 0
 
         ## Keys Are Ready
         hotKeys = keyboard.GlobalHotKeys({
