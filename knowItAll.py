@@ -36,9 +36,9 @@ def processText(text : str):
         Process Text
         @param text: Process highlighted text. 
     '''
-    text = re.sub("[\\t\\n]+", " ", text).strip() ## Remove line breaks and tabs, and also any punctuation at the end. 
-    text = re.sub("[\.\?\,]$", "", text)
-    text = text[0:1].upper() + text[1:]
+    text = re.sub("[\\t\\n\\r]+", " ", text).strip() ## Remove line breaks, tabs, and spaces  
+    text = re.sub("[\.\,]$", "", text) ## remove punctuations at the end of a string
+    text = text[0:1].upper() + text[1:] ## Upper case first letter.
     return text 
 
 def isAddTextValid(prevText, text, learnedDetails):
@@ -109,7 +109,7 @@ def WriteOutlearnedDetails(focus, learnedDetails):
         ## For each url, write down its list of knowledge
         for url,knowledge in learnedDetails.items():
             if len(knowledge) != 0:
-                f.write("---------------------", strCurrentTime ,"------------", url ," ------------------------------------------------\n")
+                f.write("--------------------- " + strCurrentTime + " ------------ " +  url  + "  ------------------------------------------------\n")
                 for item in knowledge:
                     if (item["level"] != 0):
                         if item["level"] % 2 != 0:
@@ -152,10 +152,18 @@ def main():
                 freeze = keyVariables["freeze"]
             
             time.sleep(0.5) ## Time it takes to find first instance of text: 0s - 0.5s 
+            
+            ### Case where we close tab left of current tab, and there are only two tabs.
+            if newWindowIndex >= len(driver.driver.window_handles):
+                newWindowIndex -= 1
+                keyThread.updateKeyThread(windowIndex=newWindowIndex)
+
             driver.switch_to_new_tab(newWindowIndex) 
             
             text, baseText = driver.getSelectedText()
             text = processText(text)         
+
+            ## How to update newWindowIndex? Without continuously
             keyThread.updateKeyThread(url, urlKnowledge, currBaseText, len(driver.driver.window_handles)) ## Make sure key is updated without empty url values
             
             ## Add Text if Valid
@@ -175,7 +183,12 @@ def main():
                 
             prevText = text
         except NoSuchWindowException:
-            driver.switch_to_new_tab(len(driver.driver.window_handles))
+            ## Usually the keythread updates the newWindowIndex variable,
+            ## But here we update it in the mainthread, so we make sure newWindowIndex stay up to date
+            ## and doesn't feed an invalid index to the 
+            newWindowIndex = len(driver.driver.window_handles) - 1
+            driver.switch_to_new_tab(len(driver.driver.window_handles) - 1)
+            keyThread.updateKeyThread(windowIndex=newWindowIndex)
         except (KeyboardInterrupt, WebDriverException):
             WriteOutlearnedDetails(focus, urlKnowledge)
             logException()

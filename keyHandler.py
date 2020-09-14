@@ -30,11 +30,12 @@ class KeyThread:
         "freeze" : self.freeze}
 
     ## This only needs to be updated upon adding text (highlighting text) 
-    def updateKeyThread(self, url, urlKnowledge, currBaseText, numWindows):
-        self.url = url
-        self.urlKnowledge = urlKnowledge
-        self.currBaseText = currBaseText 
-        self.numWindows = numWindows
+    def updateKeyThread(self, url=None, urlKnowledge=None, currBaseText=None, numWindows=None, windowIndex=None):
+        self.url = url if url != None else self.url
+        self.urlKnowledge = urlKnowledge if urlKnowledge != None else self.urlKnowledge
+        self.currBaseText = currBaseText if currBaseText != None else self.currBaseText
+        self.numWindows = numWindows if numWindows != None else self.numWindows
+        self.windowIndex = windowIndex if windowIndex != None else self.windowIndex
 
     def traverseTillSpace(self, start, end, currBaseText, recentKnowledge):
         '''

@@ -27,17 +27,23 @@ class ChromeDriver:
         # atexit.register(self.goodbye)
         
 
-    def switch_to_new_tab(self, index=-1) -> None: 
+    def switch_to_new_tab(self, index) -> None: 
         ''' 
-            Switch driver to currently selected window_name. 
+            Switch driver to currently selected window_name.
+            1. If newIndex is selected, change self.windowIndex to that index.
+            2. If NoSuchWindowException (in knowItAll.py), switch to len(driver.window_handles) - 1 index. 
+            2.a. If window detected is different, switch to newIndex. If we close window we're currently on, we always switch to the last window.
+            3. Just in case if the window we close is the last window, switch to the new window.
+            4. If window we close is on the left of current window, minus newIndex by 1? 
         '''
-        if self.driver.window_handles[self.windowIndex] == self.driver.window_handles[index]:
+
+        if self.windowIndex < len(self.driver.window_handles) and self.driver.window_handles[index] == self.oldURL:
             return
-        
-        # print("New Tab: %d" % index)
+
         self.driver.switch_to.window(self.driver.window_handles[index])
         self.windowIndex = index
-    
+        self.oldURL = self.driver.window_handles[self.windowIndex]
+
     def goodbye(self):
         ActionChains(self.driver).send_keys(Keys.ALT, 'F').send_keys('X')
     def configDriver(self):
@@ -49,7 +55,7 @@ class ChromeDriver:
         # options.add_argument("--disable-notifications")
         return options
     def launchDriver(self, options):
-        # subprocess.call("bash dGCache", shell=True) ## Remove Cache      
+        subprocess.call("bash dGCache", shell=True) ## Remove Cache      
         driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.implicitly_wait(4)
         print("Driver at launchDriver:", driver)
@@ -167,7 +173,7 @@ class ChromeDriver:
         try : 
             base = self.driver.execute_script("return window.getSelection().baseNode") or \
             self.driver.execute_script("return document.getSelection().baseNode") or None
-        except selenium.common.exceptions.JavascriptException:
+        except SExceptions.JavascriptException:
             print("BaseNode Error") ## Nullify Circular Reference Error. 
             
         
